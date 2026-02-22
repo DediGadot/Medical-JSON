@@ -43,7 +43,7 @@ def run_pipeline(image_path: str, config: PipelineConfig) -> PipelineResult:
         stages.append(preprocess_result)
 
         logger.info("pipeline: [3/5] extract")
-        extract_result = extract_lab_data(engine, processed_img, report_type)
+        extract_result = extract_lab_data(engine, processed_img, report_type, custom_prompt=config.custom_extract_prompt)
         stages.append(extract_result)
         extracted_data = {
             "tests": extract_result.output.get("tests", []),

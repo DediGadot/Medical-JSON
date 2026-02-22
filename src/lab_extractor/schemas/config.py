@@ -12,3 +12,4 @@ class PipelineConfig:
     max_retries: int = 3
     image_size: int = 896
     quantize_4bit: bool = False
+    custom_extract_prompt: str | None = None  # Override extraction prompt (e.g. for CORD)

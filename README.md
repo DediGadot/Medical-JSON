@@ -346,6 +346,19 @@ medical/
 
 ---
 
+## Benchmarking
+
+For a full GPU benchmark workflow (preflight, repeated runs, artifact capture), use:
+
+```bash
+uv run python scripts/preflight_gpu.py --input-dir data/samples --output benchmark_runs/preflight.json
+uv run python scripts/run_benchmark.py --input-dir data/samples --output-dir benchmark_runs --repeats 5 --warmup-runs 2 --device cuda --torch-dtype bfloat16
+```
+
+Detailed benchmark runbook and artifact schema: `BENCHMARK.md`.
+
+---
+
 ## Limitations
 
 - **GPU required for production.** MedGemma 1.5 4B needs ~8GB VRAM. `--dry-run` works without any GPU.

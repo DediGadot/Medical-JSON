@@ -1,0 +1,6 @@
+{
+  "dataset": "naver-clova-ix/cord-v2",
+  "splits": {
+    "test": 100
+  }
+}

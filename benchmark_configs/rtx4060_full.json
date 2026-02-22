@@ -1,0 +1,15 @@
+{
+  "input_dir": "data/samples",
+  "output_dir": "benchmark_runs",
+  "sample_size": 0,
+  "repeats": 5,
+  "warmup_runs": 2,
+  "device": "cuda",
+  "torch_dtype": "bfloat16",
+  "quantize_4bit": false,
+  "max_new_tokens": 2048,
+  "max_retries": 3,
+  "dry_run": false,
+  "skip_eval": false,
+  "seed": 42
+}

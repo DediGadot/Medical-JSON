@@ -25,11 +25,17 @@ TYPE_HINTS = {
 
 
 def extract_lab_data(
-    engine: MedGemmaEngine, image: Image.Image, report_type: str
+    engine: MedGemmaEngine,
+    image: Image.Image,
+    report_type: str,
+    custom_prompt: str | None = None,
 ) -> StageResult:
     start = time.time()
 
-    prompt = EXTRACT_PROMPT + TYPE_HINTS.get(report_type, "")
+    if custom_prompt is not None:
+        prompt = custom_prompt
+    else:
+        prompt = EXTRACT_PROMPT + TYPE_HINTS.get(report_type, "")
     response = engine.query(image, prompt)
 
     tests_data: list[dict[str, Any]] = []
